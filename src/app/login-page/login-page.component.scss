@@ -1,0 +1,30 @@
+
+
+body{
+    background-color: darkgray;
+    display: flex;
+    justify-content: center;
+}
+
+.formField{
+    text-align: center;
+    display:block;
+}
+
+#loginCard{
+    margin-top: 10%;
+    width: 30%;
+    height: 30%;
+    display: block;
+    justify-content: center;
+}
+
+.loginCardItem{
+    height: 15%;
+    width: 50%;
+}
+
+
+#loginButton {
+    margin: 1%;
+}

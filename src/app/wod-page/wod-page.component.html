@@ -1,0 +1,18 @@
+<body>
+  <div style="width: 100%">
+    <app-nav></app-nav>
+  </div>
+
+  <p>wod page</p>
+
+  <button mat-raised-button (click)="getWod()">Get wod</button>
+  <button mat-raised-button (click)="showWod = false">Close Wod</button>
+
+
+  <mat-card *ngIf="showWod" id="wodCard">
+    <h3>{{ wod.title }}</h3>
+    <h5 *ngIf="wod.rounds != undefined">{{ wod.rounds }} Rounds </h5>
+    <p *ngIf="wod.movements != undefined">{{ wod.movements }}</p>
+  </mat-card>
+
+</body>
