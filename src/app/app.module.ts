@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -20,6 +21,7 @@ import { ClassBoardPageComponent } from './class-board-page/class-board-page.com
 import { WhiteBoardPageComponent } from './white-board-page/white-board-page.component';
 import { SettingsPageComponent } from './settings-page/settings-page.component';
 import { WodPageComponent } from './wod-page/wod-page.component';
+import { UserScoreComponent } from './white-board-page/user-score/user-score.component';
 
 @NgModule({
   declarations: [
@@ -30,10 +32,12 @@ import { WodPageComponent } from './wod-page/wod-page.component';
     ClassBoardPageComponent,
     WhiteBoardPageComponent,
     SettingsPageComponent,
-    WodPageComponent
+    WodPageComponent,
+    UserScoreComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

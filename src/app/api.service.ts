@@ -17,8 +17,13 @@ export class APIService {
     return this.http.get(url, { responseType: 'text' });
   }
 
-  getWod() {
-    const url = `${this.url}/getWod`;
+  getWod(year, month, day) {
+    const url = `${this.url}/getWod/${year}/${month}/${day}`;
+    return this.http.get(url, { responseType: 'json' });
+  }
+
+  getResults(year, month, day) {
+    const url = `${this.url}/getResults/${year}/${month}/${day}`;
     return this.http.get(url, { responseType: 'json' });
   }
 }

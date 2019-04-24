@@ -5,5 +5,7 @@
 
   <p>white board page</p>
 
+  <app-user-score *ngFor="let score of userScores; let i=index;" [input]="userScores[i]">
+  </app-user-score>
 
 </body>

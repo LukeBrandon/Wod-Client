@@ -3,16 +3,19 @@
     <app-nav></app-nav>
   </div>
 
-  <p>wod page</p>
-
-  <button mat-raised-button (click)="getWod()">Get wod</button>
+  <input type="date" [formControl]="userDate" />
+  <button mat-raised-button (click)="getWod()">Get wod at date</button>
   <button mat-raised-button (click)="showWod = false">Close Wod</button>
-
+  <p>{{ userDate.value }}</p>
 
   <mat-card *ngIf="showWod" id="wodCard">
     <h3>{{ wod.title }}</h3>
-    <h5 *ngIf="wod.rounds != undefined">{{ wod.rounds }} Rounds </h5>
-    <p *ngIf="wod.movements != undefined">{{ wod.movements }}</p>
+    <h5 *ngIf="wod.rounds">{{ wod.rounds }} Rounds </h5>
+    <div *ngIf="wod.movements">
+      <p *ngFor="let movement of wod.movements;">
+        {{ movement }}
+      </p>
+    </div>
   </mat-card>
 
 </body>

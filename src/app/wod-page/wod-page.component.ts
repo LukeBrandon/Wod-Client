@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from '../api.service';
-import { IWod } from '../../models/wodModels';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-wod-page',
@@ -10,19 +10,30 @@ import { IWod } from '../../models/wodModels';
 export class WodPageComponent implements OnInit {
   wod: any;
   showWod: boolean;
+  date: Date;
+  userDate = new FormControl();
 
   constructor(
     private apiService: APIService,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
+
   }
 
   getWod() {
-    this.apiService.getWod().subscribe(result => {
+    const dateList = this.userDate.value.split('-');
+    const year = dateList[0];
+    const month = dateList[1];
+    const day = dateList[2];
+
+    // date input in YYYY-MM-DD
+    this.apiService.getWod(year, month, day).subscribe(result => {
       this.wod = result;
     });
     this.showWod = true;
+
   }
 
 
