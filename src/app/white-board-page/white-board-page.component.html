@@ -3,9 +3,16 @@
     <app-nav></app-nav>
   </div>
 
-  <p>white board page</p>
+  <div>
+    <input type="date" [formControl]="userDate" />
+    <button mat-raised-button (click)="getResults()">Get Results</button>
+    <button mat-raised-button (click)="showScores = false">Dont show scores</button>
+  </div>
 
-  <app-user-score *ngFor="let score of userScores; let i=index;" [input]="userScores[i]">
-  </app-user-score>
+  <div style="display: inline">
+    <app-user-score *ngFor="let score of userScores; let i=index;" [input]="userScores[i]">
+    </app-user-score>
+  </div>
+
 
 </body>

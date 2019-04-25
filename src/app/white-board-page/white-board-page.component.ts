@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from '../api.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-white-board-page',
@@ -6,23 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./white-board-page.component.scss']
 })
 export class WhiteBoardPageComponent implements OnInit {
-  userScores = [
-    {
-      name: 'Alex abernathy',
-      score: '3 rounds + 15 reps',
-    },
-    {
-      name: 'Catherine Nettle',
-      score: '3 rounds + 15 reps',
-    },
-    {
-      name: 'Luke Brandon',
-      score: '3 rounds + 15 reps',
-    },
-  ];
-  constructor() { }
+  userScores: any = [];
+  userDate = new FormControl();
+  showScores: boolean;
+
+  constructor(
+    private apiService: APIService,
+  ) {
+    this.showScores = false;
+  }
 
   ngOnInit() {
   }
+
+  getResults() {
+    const dateList = this.userDate.value.split('-');
+    const year = dateList[0];
+    const month = dateList[1];
+    const day = dateList[2];
+
+    this.apiService.getResults(year, month, day).subscribe(result => {
+      console.log(result);
+      this.userScores = result;
+    });
+    this.showScores = true;
+  }
+
 
 }
