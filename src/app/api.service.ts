@@ -26,4 +26,9 @@ export class APIService {
     const url = `${this.url}/getResults/${year}/${month}/${day}`;
     return this.http.get(url, { responseType: 'json' });
   }
+
+  login(credentials) {
+    const url = `${this.url}/users/login`;
+    return this.http.post(url, credentials);
+  }
 }

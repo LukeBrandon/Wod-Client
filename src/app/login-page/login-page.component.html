@@ -3,15 +3,14 @@
   <mat-card id="loginCard">
 
     <mat-form-field class="formField" appearance="legacy">
-      <input matInput class="loginCardItem" placeholder="Email">
+      <input matInput [formControl]="userEmail" class="loginCardItem" placeholder="Email">
     </mat-form-field>
 
     <mat-form-field class="formField" appearance="legacy">
-      <input matInput class="loginCardItem" placeholder="Password">
+      <input matInput [formControl]="userPassword" class="loginCardItem" placeholder="Password">
     </mat-form-field>
 
-    <button (click)="test()" class="loginCardItem" id="loginButton" mat-raised-button color="primary"
-      routerLink='/homeScreen'> Login
+    <button (click)="login()" class="loginCardItem" id="loginButton" mat-raised-button color="primary"> Login
     </button>
 
   </mat-card>
