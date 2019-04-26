@@ -4,8 +4,7 @@
   </div>
 
   <div>
-    <input type="date" [formControl]="userDate" />
-    <button mat-raised-button (click)="getResults()">Get Results</button>
+    <input type="date" (change)="getResults()" [formControl]="userDate" />
     <button mat-raised-button (click)="showScores = false">Dont show scores</button>
   </div>
 

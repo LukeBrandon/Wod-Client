@@ -3,10 +3,8 @@
     <app-nav></app-nav>
   </div>
 
-  <input type="date" [formControl]="userDate" />
-  <button mat-raised-button (click)="getWod()">Get wod at date</button>
+  <input type="date" (change)="getWod()" [formControl]="userDate" />
   <button mat-raised-button (click)="showWod = false">Close Wod</button>
-  <p>{{ userDate.value }}</p>
 
   <mat-card *ngIf="showWod" id="wodCard">
     <h3>{{ wod.title }}</h3>
