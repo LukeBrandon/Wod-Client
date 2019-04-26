@@ -22,4 +22,11 @@ export class NavComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  isOwner() {
+    if (this.loginService.getStatus() === 'owner') {
+      return true;
+    }
+    return false;
+  }
+
 }
