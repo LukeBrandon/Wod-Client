@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './login.service';
 
+export interface IUserCredentials {
+  email: string;
+  password?: string;
+  status: string;
+}
 @Injectable({
   providedIn: 'root'
 })
+
 export class APIService {
   url = 'http://localhost:15100';
 
   constructor(
     private http: HttpClient,
+    private loginService: LoginService,
   ) { }
 
   getTest() {
@@ -29,6 +37,13 @@ export class APIService {
 
   login(credentials) {
     const url = `${this.url}/users/login`;
-    return this.http.post(url, credentials);
+    this.http.post<IUserCredentials>(url, credentials).subscribe(result => {
+      if (result !== null) {
+        this.loginService.setStatus(result.status);
+        this.loginService.setEmail(result.email);
+        return true;
+      }
+      return false;
+    });
   }
 }

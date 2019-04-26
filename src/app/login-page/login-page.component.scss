@@ -1,4 +1,6 @@
+*{
 
+}
 
 body{
     background-color: darkgray;
@@ -27,4 +29,9 @@ body{
 
 #loginButton {
     margin: 1%;
+}
+
+#loginErrorCard{
+    margin: 2%;
+    display: block
 }

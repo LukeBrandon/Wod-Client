@@ -7,7 +7,7 @@
     </mat-form-field>
 
     <mat-form-field class="formField" appearance="legacy">
-      <input matInput [formControl]="userPassword" class="loginCardItem" placeholder="Password">
+      <input matInput [formControl]="userPassword" type="password" class="loginCardItem" placeholder="Password">
     </mat-form-field>
 
     <button (click)="login()" class="loginCardItem" id="loginButton" mat-raised-button color="primary"> Login
@@ -15,6 +15,11 @@
 
   </mat-card>
 
+
+  <mat-card *ngIf="loginError" id="loginErrorCard">
+    <h3 style="color: red">{{ errorTitle }}</h3>
+    <p>{{ errorBody }}</p>
+  </mat-card>
 
 
 
