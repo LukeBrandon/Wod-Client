@@ -22,6 +22,9 @@ import { WhiteBoardPageComponent } from './white-board-page/white-board-page.com
 import { SettingsPageComponent } from './settings-page/settings-page.component';
 import { WodPageComponent } from './wod-page/wod-page.component';
 import { UserScoreComponent } from './white-board-page/user-score/user-score.component';
+import { OwnerPageComponent } from './owner-page/owner-page.component';
+import { AddWodComponent } from './owner-page/add-wod/add-wod.component';
+import { ChangeMembershipComponent } from './owner-page/change-membership/change-membership.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { UserScoreComponent } from './white-board-page/user-score/user-score.com
     WhiteBoardPageComponent,
     SettingsPageComponent,
     WodPageComponent,
-    UserScoreComponent
+    UserScoreComponent,
+    OwnerPageComponent,
+    AddWodComponent,
+    ChangeMembershipComponent
   ],
   imports: [
     BrowserModule,
