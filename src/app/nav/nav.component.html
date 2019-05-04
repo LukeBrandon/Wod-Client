@@ -4,7 +4,7 @@
     <mat-button-toggle-group appearance="legacy" name="nav" aria-label="Font Style">
       <mat-button-toggle routerLink="/homeScreen" value="Home">Home</mat-button-toggle>
       <mat-button-toggle routerLink="/wod" value="WOD">WOD</mat-button-toggle>
-      <mat-button-toggle routerLink="/classBoard" value="Class Board">Class Board</mat-button-toggle>
+      <mat-button-toggle *ngIf="isOwner()" routerLink="/classBoard" value="Class Board">Class Board</mat-button-toggle>
       <mat-button-toggle *ngIf="isOwner()" routerLink="/ownerPage" value="Owner Only">Owner Only
       </mat-button-toggle>
       <mat-button-toggle routerLink="/whiteBoard" value="White Board">White Board</mat-button-toggle>

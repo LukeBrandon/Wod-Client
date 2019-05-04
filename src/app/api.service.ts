@@ -20,11 +20,6 @@ export class APIService {
     private loginService: LoginService,
   ) { }
 
-  getTest() {
-    const url = `${this.url}/ping`;
-    return this.http.get(url, { responseType: 'text' });
-  }
-
   getWod(year, month, day) {
     const url = `${this.url}/getWod/${year}/${month}/${day}`;
     return this.http.get(url, { responseType: 'json' });
@@ -33,6 +28,34 @@ export class APIService {
   getResults(year, month, day) {
     const url = `${this.url}/getResults/${year}/${month}/${day}`;
     return this.http.get(url, { responseType: 'json' });
+  }
+
+  getAllUsers() {
+    const url = `${this.url}/getAllUsers`;
+    return this.http.get(url, { responseType: 'json' });
+  }
+
+  canSignIn(selectedUser) {
+    let userData;
+    const url = `${this.url}/getAllUsers`;
+    userData = this.http.get(url).subscribe(result => {
+      userData = result;
+    });
+    console.log(userData);
+    let signIns = 0;
+    for (const user in userData) {
+      if (userData[user].name === selectedUser.name) {
+        signIns = userData[user].signInsThisWeek;
+      }
+    }
+
+    if (signIns <= 4) {
+      console.log('yes: signins = ' + signIns);
+      return true;
+    } else {
+      console.log('nope: signins = ' + signIns);
+      return false;
+    }
   }
 
   login(credentials) {

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -46,6 +48,9 @@ import { ChangeMembershipComponent } from './owner-page/change-membership/change
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgSelectModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,

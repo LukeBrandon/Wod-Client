@@ -2,10 +2,15 @@
   <div style="width: 100%">
     <app-nav></app-nav>
   </div>
+  <h3>Class Board Page</h3>
 
-  <p>class board page</p>
+  <div style="width: 30%">
+    <ng-select [items]="allUsers" bindLabel="name" placeholder="Choose Athelete" [(ngModel)]="selectedUser">
+    </ng-select>
+  </div>
 
+  <button mat-raised-button (click)="signIn()">Sign-In</button>
 
-
+  <p *ngFor="let user of loggedInUsers"> {{user.name}} </p>
 
 </body>
