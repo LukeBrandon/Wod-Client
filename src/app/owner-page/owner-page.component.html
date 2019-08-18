@@ -1,0 +1,21 @@
+<body>
+  <div style="width: 100%">
+    <app-nav></app-nav>
+  </div>
+
+  <div id="ownerToggle">
+    <mat-button-toggle-group #group="matButtonToggleGroup" appearance="legacy" aria-label="Font Style">
+      <mat-button-toggle value="addWod">Add Wod</mat-button-toggle>
+      <mat-button-toggle value="changeMembership">ChangeMembership</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <!-- The following are chosen to load by the above matButtonToggleGroup -->
+  <app-add-wod *ngIf="group.value == 'addWod'">
+  </app-add-wod>
+
+  <app-change-membership *ngIf="group.value == 'changeMembership'">
+  </app-change-membership>
+
+
+</body>

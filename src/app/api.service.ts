@@ -21,6 +21,7 @@ export class APIService {
   ) { }
 
   getWod(year, month, day) {
+    console.log(year, month, day);
     const url = `${this.url}/getWod/${year}/${month}/${day}`;
     return this.http.get(url, { responseType: 'json' });
   }
@@ -35,19 +36,23 @@ export class APIService {
     return this.http.get(url, { responseType: 'json' });
   }
 
-  canSignIn(selectedUser) {
+  async canSignIn(selectedUser) {
     let userData;
-    const url = `${this.url}/getAllUsers`;
-    userData = this.http.get(url).subscribe(result => {
-      userData = result;
-    });
-    console.log(userData);
     let signIns = 0;
-    for (const user in userData) {
-      if (userData[user].name === selectedUser.name) {
-        signIns = userData[user].signInsThisWeek;
+    const url = `${this.url}/getAllUsers`;
+    await this.http.get(url).subscribe(result => {
+      userData = result;
+      console.log(userData);
+      for (const user in userData) {
+        if (userData[user].name === selectedUser.name) {
+          signIns = userData[user].signInsThisWeek;
+          console.log(`signins set to ${signIns}`);
+        }
       }
-    }
+    });
+
+
+    console.log('signins is ' + signIns);
 
     if (signIns <= 4) {
       console.log('yes: signins = ' + signIns);

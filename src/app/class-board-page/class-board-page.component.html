@@ -11,6 +11,6 @@
 
   <button mat-raised-button (click)="signIn()">Sign-In</button>
 
-  <p *ngFor="let user of loggedInUsers"> {{user.name}} </p>
+  <p *ngFor="let user of loggedInUsers"> {{user.name || undefined}} </p>
 
 </body>
